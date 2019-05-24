@@ -5,11 +5,16 @@
     <artifactId>${appName}-${artifactId}</artifactId>  
     <version>${version}</version>
     <name>${appName}-${artifactId}</name> 
-    <packaging>jar</packaging>  
+    <packaging>jar</packaging>
+
   <dependencies>
     <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+    <dependency>
       <groupId>${groupId}</groupId>
-      <artifactId>${appName}-biz</artifactId>
+      <artifactId>${appName}-core-model</artifactId>
     </dependency>
   </dependencies>
    

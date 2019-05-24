@@ -9,7 +9,7 @@
   <dependencies>
     <dependency>
       <groupId>${groupId}</groupId>
-      <artifactId>${appName}-biz</artifactId>
+      <artifactId>${appName}-core-service</artifactId>
     </dependency>
   </dependencies>
    

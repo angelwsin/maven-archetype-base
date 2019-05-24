@@ -2,6 +2,15 @@
                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
                       name="servicearchetype">
+    <!--
+    The metadata about an archetype is stored in the archetype-metadata.xml file located in the META-INF/maven directory of its jar file.
+    骨架元数据描述
+
+    包含三部分
+    属性的集合（其实类似于变量可以被下面的引用）
+    文件的集合  定义文件集合 可以使用表达式 __property__  这种类型引用属性
+    模块的集合
+    -->
   <!-- https://blog.csdn.net/xwnxwn/article/details/52529417 学习 -->
  <!--  <requiredProperties>
     <requiredProperty key=.. >
@@ -47,7 +56,10 @@
         </requiredProperty>  
         <requiredProperty key="package">  
             <defaultValue>com.alibaba.china.app</defaultValue>  
-        </requiredProperty>  
+        </requiredProperty>
+       <requiredProperty key="version">
+           <defaultValue>1.0.0</defaultValue>
+       </requiredProperty>
     </requiredProperties> 
     <!-- 
     id     ：相当于工程的artifactId.
@@ -55,7 +67,42 @@
     name   ：模块的名字.
      -->
     <modules>  
-        <module id="common-dal" dir="common-dal" name="common-dal">  
+        <module id="dal" dir="dal" name="dal">
+            <fileSets>
+                <fileSet filtered="true" encoding="UTF-8" packaged="true">  
+                    <directory>src/main/java</directory>  
+                    <includes>  
+                        <include>**/*.java</include>  
+                        <include>**/*.txt</include>  
+                    </includes>  
+                </fileSet>  
+                <fileSet filtered="true" encoding="UTF-8" packaged="true">  
+                    <directory>src/test/java</directory>  
+                    <includes>  
+                        <include>**/*.java</include>  
+                    </includes>  
+                </fileSet>  
+                <fileSet filtered="true" encoding="UTF-8" packaged="false">  
+                    <directory>src/main/resources</directory>  
+                    <includes>  
+                        <include>**/*.*</include>  
+                    </includes>  
+                </fileSet>  
+                <fileSet filtered="true" encoding="UTF-8" packaged="false">  
+                    <directory>src/test/resources</directory>  
+                    <includes>  
+                        <include>**/*.*</include>  
+                    </includes>  
+                </fileSet>  
+                <fileSet filtered="true" encoding="UTF-8">  
+                    <directory></directory>  
+                    <includes>  
+                        <include>pom.xml</include>  
+                    </includes>  
+                </fileSet>  
+            </fileSets>  
+        </module>  
+        <module id="event" dir="event" name="event">
             <fileSets>  
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -90,7 +137,7 @@
                 </fileSet>  
             </fileSets>  
         </module>  
-        <module id="common-event" dir="common-event" name="common-event">  
+        <module id="facade" dir="facade" name="facade">
             <fileSets>  
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -125,42 +172,7 @@
                 </fileSet>  
             </fileSets>  
         </module>  
-        <module id="common-facade" dir="common-facade" name="common-facade">  
-            <fileSets>  
-                <fileSet filtered="true" encoding="UTF-8" packaged="true">  
-                    <directory>src/main/java</directory>  
-                    <includes>  
-                        <include>**/*.java</include>  
-                        <include>**/*.txt</include>  
-                    </includes>  
-                </fileSet>  
-                <fileSet filtered="true" encoding="UTF-8" packaged="true">  
-                    <directory>src/test/java</directory>  
-                    <includes>  
-                        <include>**/*.java</include>  
-                    </includes>  
-                </fileSet>  
-                <fileSet filtered="true" encoding="UTF-8" packaged="false">  
-                    <directory>src/main/resources</directory>  
-                    <includes>  
-                        <include>**/*.*</include>  
-                    </includes>  
-                </fileSet>  
-                <fileSet filtered="true" encoding="UTF-8" packaged="false">  
-                    <directory>src/test/resources</directory>  
-                    <includes>  
-                        <include>**/*.*</include>  
-                    </includes>  
-                </fileSet>  
-                <fileSet filtered="true" encoding="UTF-8">  
-                    <directory></directory>  
-                    <includes>  
-                        <include>pom.xml</include>  
-                    </includes>  
-                </fileSet>  
-            </fileSets>  
-        </module>  
-        <module id="common-service-gw" dir="common-service-gw" name="common-service-gw">  
+        <module id="service-gw" dir="service-gw" name="common-service-gw">
             <fileSets>  
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -195,7 +207,7 @@
                 </fileSet>  
             </fileSets>
         </module>  
-        <module id="common-service-integration" dir="common-service-integration" name="common-service-integration">  
+        <module id="service-integration" dir="service-integration" name="service-integration">
             <fileSets>  
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -230,7 +242,7 @@
                 </fileSet>  
             </fileSets>  
         </module>
-         <module id="common-util" dir="common-util" name="common-util">  
+         <module id="common-util" dir="common-util" name="common-util">
             <fileSets>  
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -239,7 +251,7 @@
                         <include>**/*.txt</include>  
                     </includes>  
                 </fileSet>  
-                <fileSet filtered="true" encoding="UTF-8" packaged="true">  
+                <fileSet filtered="true" encoding="UTF-8" packaged="true">
                     <directory>src/test/java</directory>  
                     <includes>  
                         <include>**/*.java</include>  
@@ -300,7 +312,7 @@
                 </fileSet>  
             </fileSets>  
         </module>  
-         <module id="core-service" dir="core-service" name="core-service">  
+         <module id="core-service" dir="core-service" name="core-service">
             <fileSets>  
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -335,7 +347,7 @@
                 </fileSet>  
             </fileSets>  
         </module>  
-         <module id="web-home" dir="web-home" name="web-home">  
+         <module id="web-home" dir="web-home" name="web-home">
             <fileSets>  
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -368,7 +380,77 @@
                         <include>pom.xml</include>  
                     </includes>  
                 </fileSet>  
-            </fileSets>  
-        </module>    
+            </fileSets>
+         </module>
+             <module id="start" dir="start" name="start">
+                 <fileSets>
+                     <fileSet filtered="true" encoding="UTF-8" packaged="true">
+                         <directory>src/main/java</directory>
+                         <includes>
+                             <include>**/*.java</include>
+                             <include>**/*.txt</include>
+                         </includes>
+                     </fileSet>
+                     <fileSet filtered="true" encoding="UTF-8" packaged="true">
+                         <directory>src/test/java</directory>
+                         <includes>
+                             <include>**/*.java</include>
+                         </includes>
+                     </fileSet>
+                     <fileSet filtered="true" encoding="UTF-8" packaged="false">
+                         <directory>src/main/resources</directory>
+                         <includes>
+                             <include>**/*.*</include>
+                         </includes>
+                     </fileSet>
+                     <fileSet filtered="true" encoding="UTF-8" packaged="false">
+                         <directory>src/test/resources</directory>
+                         <includes>
+                             <include>**/*.*</include>
+                         </includes>
+                     </fileSet>
+                     <fileSet filtered="true" encoding="UTF-8">
+                         <directory></directory>
+                         <includes>
+                             <include>pom.xml</include>
+                         </includes>
+                     </fileSet>
+                 </fileSets>
+             </module>
+             <module id="biz" dir="biz" name="biz">
+                 <fileSets>
+                     <fileSet filtered="true" encoding="UTF-8" packaged="true">
+                         <directory>src/main/java</directory>
+                         <includes>
+                             <include>**/*.java</include>
+                             <include>**/*.txt</include>
+                         </includes>
+                     </fileSet>
+                     <fileSet filtered="true" encoding="UTF-8" packaged="true">
+                         <directory>src/test/java</directory>
+                         <includes>
+                             <include>**/*.java</include>
+                         </includes>
+                     </fileSet>
+                     <fileSet filtered="true" encoding="UTF-8" packaged="false">
+                         <directory>src/main/resources</directory>
+                         <includes>
+                             <include>**/*.*</include>
+                         </includes>
+                     </fileSet>
+                     <fileSet filtered="true" encoding="UTF-8" packaged="false">
+                         <directory>src/test/resources</directory>
+                         <includes>
+                             <include>**/*.*</include>
+                         </includes>
+                     </fileSet>
+                     <fileSet filtered="true" encoding="UTF-8">
+                         <directory></directory>
+                         <includes>
+                             <include>pom.xml</include>
+                         </includes>
+                     </fileSet>
+                 </fileSets>
+             </module>
     </modules>   
 </archetype-descriptor>

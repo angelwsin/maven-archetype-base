@@ -1,0 +1,50 @@
+
+Each archetype defines a set of common properties:
+
+groupId which will be the groupId of the project
+artifactId which will be the artifactId of the project
+version which will be the version of the project
+package which will be the base package for all source files of the project
+A JAR file
+
+自定义骨架组织
+|-- META-INF
+|   `-- maven
+|       `-- archetype-metadata.xml  [1]
+`-- archetype-resources
+    |-- ...                         [2]
+    `-- pom.xml                     [3]
+
+
+
+
+文件集合使用 fileSet filtered="true"  使用  Velocity engine
+
+http://maven.apache.org/archetype/maven-archetype-plugin/specification/specification.html
+
+
+例子
+
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor name="basic">
+  <fileSets>
+    <fileSet filtered="true" packaged="true">
+      <directory>src/main/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>
+
+
+This example above shows:
+
+the archetype name is basic
+the archetype defines a single fileset:
+the fileset will take all the files in archetype-resources/src/main/java that match the **/*.java pattern
+the selected files will be generated using the Velocity engine (filtered=true)
+the files will be generated in the src/main/java directory of the generated project in the same directory as in the JAR file, but with that directory prepended by the package property.
+
+mvn archetype:generate -DgroupId=cai -DartifactId=beast-test -Dpackage="com.thebeastshop.test" -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-base -DarchetypeVersion=0.0.1-SNAPSHOT -X -DarchetypeCatalog=local
+

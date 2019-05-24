@@ -8,8 +8,16 @@
     <packaging>jar</packaging>  
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      <groupId>${groupId}</groupId>
+      <artifactId>${appName}-service-integration</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${groupId}</groupId>
+      <artifactId>${appName}-facade</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${groupId}</groupId>
+      <artifactId>${appName}-dal</artifactId>
     </dependency>
   </dependencies>
    

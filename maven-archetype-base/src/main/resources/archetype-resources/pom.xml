@@ -5,21 +5,92 @@
     <artifactId>${appName}</artifactId>  
     <version>${version}</version>
     <name>${appName}</name>
-    <packaging>pom</packaging>  
-    
+    <packaging>pom</packaging>
+
+  <properties>
+    <junit.vesion>4.10</junit.vesion>
+    <spring.boot>2.1.5.RELEASE</spring.boot>
+  </properties>
+
   <dependencyManagement>
     <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.10</version>
+      <version>${junit.vesion}</version>
       <scope>test</scope>
     </dependency>
     <!-- dal -->
     
     
     <!-- Spring -->
-  </dependencies>
+        <dependency>
+        <groupId>${groupId}</groupId>
+        <artifactId>${appName}-biz</artifactId>
+        <version>${version}</version>
+       </dependency>
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${appName}-common-util</artifactId>
+            <version>${version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${appName}-core-model</artifactId>
+            <version>${version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${appName}-core-service</artifactId>
+            <version>${version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${appName}-dal</artifactId>
+            <version>${version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${appName}-event</artifactId>
+            <version>${version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${appName}-facade</artifactId>
+            <version>${version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${appName}-service-gw</artifactId>
+            <version>${version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${appName}-service-integration</artifactId>
+            <version>${version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${appName}-start</artifactId>
+            <version>${version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${appName}-web-home</artifactId>
+            <version>${version}</version>
+        </dependency>
+
+        <!--spring boot -->
+        <dependency>
+            <!-- Import dependency management from Spring Boot -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>${spring.boot}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
   </dependencyManagement>
   
    <build>

@@ -46,28 +46,25 @@
    -->
    <requiredProperties>  
         <requiredProperty key="appName">  
-            <defaultValue>helloworld</defaultValue>  
-        </requiredProperty>  
+        </requiredProperty>
         <requiredProperty key="groupId">  
-            <defaultValue>com.alibaba.china.app</defaultValue>  
-        </requiredProperty>  
-        <requiredProperty key="artifactId">  
-            <defaultValue>helloworld</defaultValue>  
-        </requiredProperty>  
+        </requiredProperty>
+        <requiredProperty key="artifactId">
+        </requiredProperty>
         <requiredProperty key="package">  
-            <defaultValue>com.alibaba.china.app</defaultValue>  
+            <defaultValue>com.alibaba.china.app</defaultValue>
         </requiredProperty>
        <requiredProperty key="version">
            <defaultValue>1.0.0</defaultValue>
        </requiredProperty>
-    </requiredProperties> 
-    <!-- 
+    </requiredProperties>
+    <!--
     id     ：相当于工程的artifactId.
     dir    ：相当于工程源文件在archetype-resources里对应的directory.
     name   ：模块的名字.
      -->
     <modules>  
-        <module id="dal" dir="dal" name="dal">
+        <module id="dal" dir="__appName__-dal" name="dal">
             <fileSets>
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -102,7 +99,7 @@
                 </fileSet>  
             </fileSets>  
         </module>  
-        <module id="event" dir="event" name="event">
+        <module id="event" dir="__appName__-event" name="event">
             <fileSets>  
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -137,7 +134,7 @@
                 </fileSet>  
             </fileSets>  
         </module>  
-        <module id="facade" dir="facade" name="facade">
+        <module id="facade" dir="__appName__-facade" name="facade">
             <fileSets>  
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -172,7 +169,7 @@
                 </fileSet>  
             </fileSets>  
         </module>  
-        <module id="service-gw" dir="service-gw" name="common-service-gw">
+        <module id="service-gw" dir="__appName__-service-gw" name="common-service-gw">
             <fileSets>  
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -207,7 +204,7 @@
                 </fileSet>  
             </fileSets>
         </module>  
-        <module id="service-integration" dir="service-integration" name="service-integration">
+        <module id="service-integration" dir="__appName__-service-integration" name="service-integration">
             <fileSets>  
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -242,7 +239,7 @@
                 </fileSet>  
             </fileSets>  
         </module>
-         <module id="common-util" dir="common-util" name="common-util">
+         <module id="common-util" dir="__appName__-common-util" name="common-util">
             <fileSets>  
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -277,7 +274,7 @@
                 </fileSet>  
             </fileSets>  
         </module>  
-         <module id="core-model" dir="core-model" name="core-model">
+         <module id="core-model" dir="__appName__-core-model" name="core-model">
             <fileSets>  
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -312,7 +309,7 @@
                 </fileSet>  
             </fileSets>  
         </module>  
-         <module id="core-service" dir="core-service" name="core-service">
+         <module id="core-service" dir="__appName__-core-service" name="core-service">
             <fileSets>  
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -347,7 +344,7 @@
                 </fileSet>  
             </fileSets>  
         </module>  
-         <module id="web-home" dir="web-home" name="web-home">
+         <module id="web-home" dir="__appName__-web-home" name="web-home">
             <fileSets>  
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">  
                     <directory>src/main/java</directory>  
@@ -382,7 +379,7 @@
                 </fileSet>  
             </fileSets>
          </module>
-             <module id="start" dir="start" name="start">
+             <module id="start" dir="__appName__-start" name="start">
                  <fileSets>
                      <fileSet filtered="true" encoding="UTF-8" packaged="true">
                          <directory>src/main/java</directory>
@@ -417,7 +414,7 @@
                      </fileSet>
                  </fileSets>
              </module>
-             <module id="biz" dir="biz" name="biz">
+             <module id="biz" dir="__appName__-biz" name="biz">
                  <fileSets>
                      <fileSet filtered="true" encoding="UTF-8" packaged="true">
                          <directory>src/main/java</directory>

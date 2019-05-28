@@ -2,14 +2,15 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>  
     <groupId>${groupId}</groupId>  
-    <artifactId>${appName}</artifactId>  
+    <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
-    <name>${appName}</name>
+    <name>${artifactId}</name>
     <packaging>pom</packaging>
 
   <properties>
     <junit.vesion>4.10</junit.vesion>
     <spring.boot>2.1.5.RELEASE</spring.boot>
+      <lombok.version>1.18.8</lombok.version>
   </properties>
 
   <dependencyManagement>
@@ -20,7 +21,7 @@
       <version>${junit.vesion}</version>
       <scope>test</scope>
     </dependency>
-    <!-- dal -->
+
     
     
     <!-- Spring -->
@@ -89,6 +90,12 @@
             <version>${spring.boot}</version>
             <type>pom</type>
             <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
   </dependencyManagement>

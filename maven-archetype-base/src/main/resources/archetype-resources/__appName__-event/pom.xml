@@ -2,22 +2,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>  
     <groupId>${groupId}</groupId>  
-    <artifactId>${appName}-${artifactId}</artifactId>  
+    <artifactId>${appName}-${artifactId}</artifactId>
     <version>${version}</version>
-    <name>${appName}-${artifactId}</name> 
+    <name>${appName}-${artifactId}</name>
     <packaging>jar</packaging>  
   <dependencies>
     <dependency>
       <groupId>${groupId}</groupId>
-      <artifactId>${appName}-service-integration</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>${groupId}</groupId>
-      <artifactId>${appName}-facade</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>${groupId}</groupId>
-      <artifactId>${appName}-dal</artifactId>
+      <artifactId>${appName}-core-service</artifactId>
     </dependency>
   </dependencies>
    

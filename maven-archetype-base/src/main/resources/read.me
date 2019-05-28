@@ -48,3 +48,5 @@ the files will be generated in the src/main/java directory of the generated proj
 
 mvn archetype:generate -DgroupId=cai -DartifactId=beast-test -Dpackage="com.thebeastshop.test" -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-base -DarchetypeVersion=0.0.1-SNAPSHOT -X -DarchetypeCatalog=local
 
+使用  mvn -pl model -am clean package   指定model模块打包 并自动加载依赖
+
